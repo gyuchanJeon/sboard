@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>약관</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<script>
+    window.onload = function () {
+        fetch('http://localhost:8080/sboard/user/terms/json')
+            .then(resp => {
+                return resp.json()
+            })
+            .then(data => {
+                const terms = document.getElementById('terms');
+                const privacy = document.getElementById('privacy');
+                terms.innerHTML = data[0].terms;
+                privacy.innerHTML = data[0].privacy;
+            })
+            .catch(err => {
+                console.log(err)
+            });
+    };
+</script>
+<body>
+    <div id="wrapper">
+        <header>
+            <h3>Board System</h3>
+        </header>
+        <main id="user">
+            <section class="terms">
+                <h2 class="tit">사이트 이용약관</h2>
+                <table border="1">                    
+                    <tr>
+                        <td>
+                            <textarea name="terms" id="terms">약관내용</textarea>
+                            <label><input type="checkbox" class="terms">&nbsp;동의합니다.</label>
+                        </td>
+                    </tr>
+                </table>
+
+                <h2 class="tit">개인정보 취급방침</h2>
+                <table border="1">                    
+                    <tr>
+                        <td>
+                            <textarea name="privacy" id="privacy">약관내용</textarea>
+                            <label><input type="checkbox" class="privacy">&nbsp;동의합니다.</label>
+                        </td>
+                    </tr>
+                </table>
+                
+                <div>
+                    <a href="/sboard/user/login" class="btn btnCancel">취소</a>
+                    <a href="/sboard/user/register" class="btn btnNext">다음</a>
+                </div>
+
+            </section>
+        </main>
+        <footer>
+            <p>
+                <span class="copyright">Copyrightⓒ 김철학(개발에반하다.)</span>
+                <span class="version">v1.0.1</span>
+            </p>
+        </footer>
+    </div>    
+</body>
+</html>
