@@ -10,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 public class TermsDTO {
 
+    private int tid;
     private String terms;
     private String privacy;
 

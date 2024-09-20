@@ -7,7 +7,7 @@
 </head>
 <script>
     window.onload = function () {
-        fetch('http://localhost:8080/sboard/user/terms/json')
+        fetch('/sboard/user/terms/json')
             .then(resp => {
                 return resp.json()
             })
@@ -20,6 +20,22 @@
             .catch(err => {
                 console.log(err)
             });
+
+        const btnNext = document.getElementById("btnNext");
+
+        const termsCheck = document.getElementById("termsCheck");
+        const privacyCheck = document.getElementById("privacyCheck");
+
+            btnNext.onclick = function () {
+                if (!termsCheck.checked) {
+                    alert("사이트 이용약관 동의 여부를 확인해주십시오")
+                    event.preventDefault();
+                } else if (!privacyCheck.checked) {
+                    alert("개인정보 취급방침 동의 여부를 확인해주십시오")
+                    event.preventDefault();
+                }
+            };
+
     };
 </script>
 <body>
@@ -34,7 +50,7 @@
                     <tr>
                         <td>
                             <textarea name="terms" id="terms">약관내용</textarea>
-                            <label><input type="checkbox" class="terms">&nbsp;동의합니다.</label>
+                            <label><input type="checkbox" class="terms" id="termsCheck">&nbsp;동의합니다.</label>
                         </td>
                     </tr>
                 </table>
@@ -44,14 +60,14 @@
                     <tr>
                         <td>
                             <textarea name="privacy" id="privacy">약관내용</textarea>
-                            <label><input type="checkbox" class="privacy">&nbsp;동의합니다.</label>
+                            <label><input type="checkbox" class="privacy" id="privacyCheck">&nbsp;동의합니다.</label>
                         </td>
                     </tr>
                 </table>
                 
                 <div>
                     <a href="/sboard/user/login" class="btn btnCancel">취소</a>
-                    <a href="/sboard/user/register" class="btn btnNext">다음</a>
+                    <a href="/sboard/user/register" class="btn btnNext" id="btnNext">다음</a>
                 </div>
 
             </section>

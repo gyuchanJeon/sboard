@@ -1,25 +1,28 @@
 package com.sboard.controller;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.sboard.Service.TermsService;
 import com.sboard.Service.UserService;
+import com.sboard.config.AppInfo;
 import com.sboard.dto.TermsDTO;
 import com.sboard.dto.UserDTO;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Log4j2
 @RequestMapping("/user")
@@ -29,39 +32,27 @@ public class UserController {
 
     private final UserService userService;
     private final TermsService termsService;
-    private final HttpServletResponse httpServletResponse;
     private final HttpServletRequest httpServletRequest;
+    private final AppInfo appInfo;
 
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute(appInfo);
         return "/user/login";
     }
 
-    @PostMapping("/login")
-    public String login(@RequestParam("uid") String uid, @RequestParam("pass") String pass) {
-        UserDTO userDTO = userService.selectUser(uid);
-        if(userDTO != null) {
-            if(pass.equals(userDTO.getPass())) {
-                return "/article/list";
-            }
-        }
-        return "/user/login?success=101";
-    }
-
-
     @GetMapping("/register")
-    public String register(Model model) {
-        List<UserDTO> userDTOs = userService.selectUsers();
-        model.addAttribute("users", userDTOs);
+    public String register() {
         return "/user/register";
     }
 
     @PostMapping("/register")
     public String register(UserDTO userDTO) {
+        String regip = httpServletRequest.getRemoteAddr();
+        userDTO.setRegip(regip);
         userService.insertUser(userDTO);
-        return "/user/login";
+        return "redirect:/user/login?success=102";
     }
-
 
     @GetMapping("/terms")
     public String terms(Model model) {
@@ -70,7 +61,7 @@ public class UserController {
         return "/user/terms";
     }
 
-    @GetMapping("/terms/json")
+    @GetMapping("/terms/json") // 이용약관 json 데이터 전송을 위한 URI mapping
     @ResponseBody
     public List<TermsDTO> getTermsJson() {
         return termsService.selectTerms();
@@ -78,68 +69,44 @@ public class UserController {
 
     @ResponseBody
     @GetMapping("/checkUser")
-    public boolean checkUser(@RequestParam("type") String type, @RequestParam("value") String value, Model model) throws IOException {
+    public ResponseEntity checkUser(@RequestParam("type") String type, @RequestParam("value") String value, HttpSession session) throws IOException {
         boolean result = userService.checkUid("email", value);
-        if(type.equals("email") && result == false) {
-            // 이메일 인증번호 발송하기
-            String code = userService.sendEmailCode(value);
 
-            // 세션 저장
-            HttpSession session = httpServletRequest.getSession();
+        // 타입이 "email"이고 UID가 존재하지 않을 경우 이메일 인증 코드 발송
+        if ("email".equalsIgnoreCase(type) && !result) {
+            String code = String.valueOf(ThreadLocalRandom.current().nextInt(100000, 1000000));
+            userService.sendEmailCode(value, code);
             session.setAttribute("authCode", code);
         }
 
-        // JSON 생성
-        JsonObject json = new JsonObject();
-        json.addProperty("result", result);
+        Map<String, Object> response = new HashMap<>();
+        response.put("result", result);
 
-        // JSON 출력
-        PrintWriter writer = httpServletResponse.getWriter();
-        writer.print(json);
-        writer.flush();
-        writer.close();
-        return userService.checkUid(type, value);
+        return ResponseEntity.ok(response);
     }
 
 
     @ResponseBody
     @PostMapping("/checkUser")
-    public void checkUser() throws IOException {
-        // Javascript fetch함수 POST JSON 문자열 스트림 처리
-        BufferedReader reader = httpServletRequest.getReader();
-        StringBuilder requestBody = new StringBuilder();
-
-        String line;
-        while((line = reader.readLine()) != null){
-            requestBody.append(line);
-        }
-        reader.close();
-
+    public ResponseEntity<Map<String, Object>> checkUser(@RequestBody String requestBody, HttpSession session) throws IOException {
         // JSON 파싱
         Gson gson = new Gson();
-        Properties prop = gson.fromJson(requestBody.toString(), Properties.class);
+        Properties prop = gson.fromJson(requestBody, Properties.class);
         String code = prop.getProperty("code");
         log.debug("code : " + code);
 
-        // 인증코드 일치 여부 확인
-        HttpSession session = httpServletRequest.getSession();
+        // 세션에서 인증 코드 가져오기
         String authCode = (String) session.getAttribute("authCode");
         log.debug("authCode : " + authCode);
 
-        // JSON 생성 후 출력
-        JsonObject json = new JsonObject();
+        // 결과 생성
+        Map<String, Object> jsonResponse = new HashMap<>();
 
-        if(authCode.equals(code)) {
-            json.addProperty("result", 1);
-        }else {
-            json.addProperty("result", 0);
+        if (authCode != null && authCode.equals(code)) {
+            jsonResponse.put("result", 1);
+        } else {
+            jsonResponse.put("result", 0);
         }
-
-        PrintWriter writer = httpServletResponse.getWriter();
-        writer.print(json);
-        writer.flush();
-        writer.close();
+        return ResponseEntity.ok(jsonResponse);
     }
-
-
 }

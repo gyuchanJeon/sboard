@@ -20,11 +20,12 @@ server:
 spring:
   application:
     name: sboard
+    version: 0.0.1
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: 1234
     url: jdbc:mysql://localhost:3306/jboard
-    username: root
+    username: jboard
+    password: "!Q2w3e4r"
   devtools:
     livereload:
       enabled: true
@@ -46,8 +47,17 @@ spring:
     password: vfft ricj elqd idom
     properties:
       mail:
+        transport.protocol: smtp
+        debug: false
         smtp:
           auth: true
+          connection timeout: 5000
           timeout: 5000
+          write timeout: 5000
           starttls:
             enable: true
+          pool: true
+          size: 5
+
+  thymeleaf:
+    prefix: classpath:/templates

@@ -7,11 +7,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,8 +20,11 @@ import java.util.stream.Collectors;
 public class UserService {
 
     private final UserReporitory userReporitory;
+    private final PasswordEncoder passwordEncoder;
 
     public void insertUser(UserDTO userDTO) {
+        String encoded = passwordEncoder.encode(userDTO.getPass());
+        userDTO.setPass(encoded);
         User user = userDTO.toEntity();
         userReporitory.save(user);
     }
@@ -58,7 +62,6 @@ public class UserService {
     public boolean checkUid(String type, String value) {
         if (type.equals("uid")) {
             boolean result = userReporitory.existsById(value);
-            return result;
         } else if (type.equals("nick")) {
             boolean result = userReporitory.existsById(value);
         } else if (type.equals("email")) {
@@ -72,9 +75,8 @@ public class UserService {
     @Autowired
     private JavaMailSender mailSender;
 
-    public String sendEmailCode(String to) {
-
-        int code = ThreadLocalRandom.current().nextInt(100000, 1000000);
+    @Async
+    public void sendEmailCode(String to, String code) {
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("ian810900@gmail.com"); // 발신자 이메일 주소
@@ -82,7 +84,6 @@ public class UserService {
         message.setSubject("sboard 인증 코드입니다.");
         message.setText("인증코드 : " + code);
         mailSender.send(message);
-        return ""+code;
     }
 
 }

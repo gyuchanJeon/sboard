@@ -69,16 +69,16 @@ window.onload = function(){
 	// 2.비밀번호 유효성 검사
 	registerForm.pass2.addEventListener('focusout', function(){
 	
-		const pass1 = registerForm.pass1.value;
+		const pass = registerForm.pass.value;
 		const pass2 = registerForm.pass2.value;
 		
-		if(!pass1.match(rePass)){
+		if(!pass.match(rePass)){
 			resultPass.innerText = "비밀번호가 유효하지 않습니다.";
 			resultPass.style.color = 'red';
 			return;
 		}
 		
-		if(pass1 == pass2){
+		if(pass === pass2){
 			resultPass.innerText = "비밀번호가 일치합니다.";
 			resultPass.style.color = 'green';
 			isPassOk = true;
@@ -166,6 +166,7 @@ window.onload = function(){
 				resultEmail.style.color = 'red';
 				isEmailOk = false;
 			}else{
+				alert("인증코드가 발송되었습니다. 이메일을 확인해주세요.")
 				resultEmail.innerText = '이메일 인증코드를 확인 하세요.';
 				resultEmail.style.color = 'green';
 				auth.style.display = 'block';
@@ -190,6 +191,7 @@ window.onload = function(){
 				console.log(data);
 				
 				if(data.result > 0){
+					alert("이메일이 인증되었습니다.")
 					resultEmail.innerText = '이메일이 인증되었습니다.';
 					resultEmail.style.color = 'green';
 					isEmailOk = true;

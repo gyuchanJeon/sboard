@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.CurrentTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -31,7 +31,7 @@ public class User {
     private String addr2;
     private String regip;
 
-    @CreationTimestamp
+    @CurrentTimestamp
     private LocalDateTime regDate;
     private LocalDateTime leaveDate;
 
