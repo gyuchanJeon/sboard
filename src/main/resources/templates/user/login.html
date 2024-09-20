@@ -5,6 +5,16 @@
     <title>로그인</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
+<script>
+    const success = `${success}`;
+    if (success==="100") {
+        alert("로그인에 실패하였습니다.")
+    } else if (success==="101") {
+        alert("성공적으로 로그아웃 되었습니다.")
+    } else if (success==="102") {
+        alert("회원가입 완료되었습니다. 다시 로그인 해주세요.")
+    }
+</script>
 <body>
     <div id="wrapper">
         <header>
@@ -25,9 +35,6 @@
                     </table>
                     <input type="submit" value="로그인" class="btnLogin"/>
                 </form>
-                <script>
-
-                </script>
                 <div>
                     <h3>회원 로그인 안내</h3>
                     <p>
