@@ -20,22 +20,22 @@ public class ArticleController {
     public String list(Model model, HttpSession httpSession) {
         String user = (String) httpSession.getAttribute("user");
         model.addAttribute("user", user);
-        return "/list";
+        return "/article/list";
     }
 
     @GetMapping("/view")
     public String view() {
-        return "/view";
+        return "/article/view";
     }
 
     @GetMapping("/modify")
     public String modify() {
-        return "/modify";
+        return "/article/modify";
     }
 
     @GetMapping("/write")
     public String write() {
-        return "/write";
+        return "/article/write";
     }
 
 }
