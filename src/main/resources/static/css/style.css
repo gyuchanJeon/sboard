@@ -4,13 +4,23 @@
     padding: 0;
     font: normal 12px '돋움';
 }
-ul, ol {list-style: none;}
-a {text-decoration: none; color: #111;}
-input, textarea {outline: none;}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #111;
+}
+
+input, textarea {
+    outline: none;
+}
 
 #wrapper {
     width: 800px;
-    height: auto;            
+    height: auto;
     margin: 0 auto;
 }
 
@@ -21,8 +31,8 @@ header {
 }
 
 header > h3 {
-    float: left; 
-    margin-top: 10px;    
+    float: left;
+    margin-top: 10px;
 }
 
 header > p {
@@ -33,8 +43,9 @@ header > p {
 /* 메인 */
 main {
     width: 100%;
-    height: auto;            
+    height: auto;
 }
+
 /* 푸터 */
 footer {
     width: 100%;
@@ -73,7 +84,10 @@ footer > p > .version {
     box-sizing: border-box;
     margin: 100px auto;
 }
-#user > .login > form {}
+
+#user > .login > form {
+}
+
 #user > .login > form > table {
     margin-left: 52px;
     margin-top: 30px;
@@ -81,9 +95,17 @@ footer > p > .version {
     border-collapse: collapse;
     border-spacing: 0;
 }
-#user > .login > form > table tr {}
-#user > .login > form > table tr > td {}
-#user > .login > form > table img {width: 20px;}
+
+#user > .login > form > table tr {
+}
+
+#user > .login > form > table tr > td {
+}
+
+#user > .login > form > table img {
+    width: 20px;
+}
+
 #user > .login > form > table input {
     width: 162px;
     height: 22px;
@@ -92,6 +114,7 @@ footer > p > .version {
     border: 1px solid #e4eaec;
     background: #f7f7f7;
 }
+
 #user > .login > form > .btnLogin {
     position: absolute;
     right: 50px;
@@ -101,6 +124,7 @@ footer > p > .version {
     background-color: #fdfdfd;
     border: 1px solid #bebebe;
 }
+
 #user > .login > form > label {
     position: absolute;
     left: 78px;
@@ -121,10 +145,14 @@ footer > p > .version {
     padding: 20px;
     box-sizing: border-box;
 }
-#user > .login > div > h3 {}
+
+#user > .login > div > h3 {
+}
+
 #user > .login > div > p {
     margin: 10px 0;
 }
+
 #user > .login > div > a {
     float: right;
 }
@@ -132,14 +160,16 @@ footer > p > .version {
 /* 약관 */
 #user > .terms {
     width: 600px;
-    height: auto;            
+    height: auto;
     margin: 60px auto;
     overflow: hidden;
 }
+
 #user > .terms > h2 {
     margin-top: 10px;
     margin-bottom: 6px;
 }
+
 #user > .terms > table {
     width: 100%;
     height: auto;
@@ -147,18 +177,23 @@ footer > p > .version {
     border-spacing: 0;
     border-top: 2px solid #111;
 }
+
 #user > .terms > table > caption {
     text-align: left;
     font-weight: bold;
     padding: 10px 0;
     box-sizing: border-box;
 }
-#user > .terms > table tr {}
+
+#user > .terms > table tr {
+}
+
 #user > .terms > table tr > td {
     padding: 6px;
     border: 1px solid #e9e9e9;
     box-sizing: border-box;
 }
+
 #user > .terms > table tr > td > textarea {
     width: 100%;
     height: 200px;
@@ -168,8 +203,13 @@ footer > p > .version {
     padding: 2px;
     box-sizing: border-box;
 }
-#user > .terms > table tr > td > label {float: right;}
-#user > .terms > table tr > td > label > input[type=checkbox] {}
+
+#user > .terms > table tr > td > label {
+    float: right;
+}
+
+#user > .terms > table tr > td > label > input[type=checkbox] {
+}
 
 #user > .terms > div {
     float: right;
@@ -179,12 +219,14 @@ footer > p > .version {
 /* 회원가입 */
 #user > .register {
     width: 600px;
-    height: auto;            
+    height: auto;
     margin: 60px auto;
     overflow: hidden;
 }
 
-#user > .register > form {}
+#user > .register > form {
+}
+
 #user > .register table {
     width: 100%;
     border-collapse: collapse;
@@ -192,24 +234,32 @@ footer > p > .version {
     border-top: 2px solid #111;
     margin-bottom: 10px;
 }
+
 #user > .register table caption {
     text-align: left;
     padding: 10px 0;
     font-weight: bold;
     box-sizing: border-box;
 }
-#user > .register table tr {}
+
+#user > .register table tr {
+}
+
 #user > .register table tr > td {
     padding: 6px 12px;
     border: 1px solid #e9e9e9;
     box-sizing: border-box;
 }
+
 #user > .register table tr > td:nth-child(1) {
     width: 105px;
     background: #f5f8f9;
 }
 
-#user > .register table tr .nickInfo {margin-bottom: 6px;}
+#user > .register table tr .nickInfo {
+    margin-bottom: 6px;
+}
+
 #user > .register table input {
     width: 162px;
     height: 22px;
@@ -223,10 +273,12 @@ footer > p > .version {
     width: 360px;
     margin: 4px 0;
 }
+
 #user > .register table input[name=addr2] {
     display: block;
     width: 360px;
 }
+
 #user > .register table button {
     border: none;
     vertical-align: bottom;
@@ -258,23 +310,28 @@ footer > p > .version {
 #board > .list {
     position: relative;
     width: 100%;
-    height: auto;            
-    margin: 60px auto;    
+    height: auto;
+    margin: 60px auto;
 }
 
 #board > .list > nav > form {
     float: right;
 }
 
-#board > .list > nav > form > input[name=search]{
+#board > .list > nav > form > select {
+    height: 26px;
+    outline: none;
+}
+#board > .list > nav > form > input[name=keyword] {
     width: 200px;
     height: 26px;
     text-indent: 6px;
     border: 1px solid #d7d7d7;
 }
-#board > .list > nav >form > input[type=submit]{
+
+#board > .list > nav > form > input[type=submit] {
     border: 1px solid #d7d7d7;
-    background: #f2f2f2; 
+    background: #f2f2f2;
     color: #111;
     padding: 6px;
 }
@@ -286,42 +343,66 @@ footer > p > .version {
     border-spacing: 0;
     border-top: 2px solid #111;
 }
-#board > .list > table tr {}
+
+#board > .list > table tr {
+}
+
 #board > .list > table > caption {
     text-align: left;
     margin-bottom: 6px;
 }
+
 #board > .list > table tr > th {
     width: auto;
     height: 40px;
     background: #e5ecef;
     border-bottom: 1px solid #d1dee2;
 }
+
 #board > .list > table tr > td {
     width: auto;
     height: 40px;
     border-bottom: 1px solid #e9e9e9;
     text-align: center;
 }
-#board > .list > table tr > td:nth-child(1) {}
-#board > .list > table tr > td:nth-child(2) {text-align: left;}
-#board > .list > table tr > td:nth-child(3) {}
-#board > .list > table tr > td:nth-child(4) {}
-#board > .list > table tr > td:nth-child(5) {}
+
+#board > .list > table tr > td:nth-child(1) {
+}
+
+#board > .list > table tr > td:nth-child(2) {
+    text-align: left;
+}
+
+#board > .list > table tr > td:nth-child(3) {
+}
+
+#board > .list > table tr > td:nth-child(4) {
+}
+
+#board > .list > table tr > td:nth-child(5) {
+}
 
 #board > .list > .page {
     text-align: center;
     margin-top: 10px;
 }
+
 #board > .list > .page > a {
     display: inline-block;
     padding: 8px;
     border: 1px solid #d7d7d7;
     background: #f2f2f2;
 }
-#board > .list > .page > .prev {}
-#board > .list > .page > .next {}
-#board > .list > .page > .num {}
+
+#board > .list > .page > .prev {
+}
+
+#board > .list > .page > .next {
+}
+
+#board > .list > .page > .num {
+}
+
 #board > .list > .page > .current {
     border: 1px solid #6d6d6d;
     background: #888;
@@ -331,10 +412,11 @@ footer > p > .version {
 /* 글쓰기 */
 #board > .write {
     width: 100%;
-    height: auto;            
+    height: auto;
     margin: 60px auto;
     overflow: hidden;
 }
+
 #board > .write table {
     width: 100%;
     height: auto;
@@ -342,26 +424,31 @@ footer > p > .version {
     border-spacing: 0;
     border-top: 2px solid #111;
 }
-#board > .write table caption{
+
+#board > .write table caption {
     text-align: left;
     margin-bottom: 6px;
 }
+
 #board > .write table th {
     width: 112px;
     height: 50px;
     background: #f5f8f9;
     border-bottom: 1px solid #e9e9e9;
 }
+
 #board > .write table td {
     padding: 10px;
     box-sizing: border-box;
     border-bottom: 1px solid #e9e9e9;
 }
+
 #board > .write table td > input {
     width: 400px;
     height: 24px;
     border: none;
 }
+
 #board > .write table td > textarea {
     width: 100%;
     height: 280px;
@@ -377,10 +464,11 @@ footer > p > .version {
 /* 글보기 */
 #board > .view {
     width: 100%;
-    height: auto;            
+    height: auto;
     margin: 60px auto;
     overflow: hidden;
 }
+
 #board > .view table {
     width: 100%;
     height: auto;
@@ -388,26 +476,31 @@ footer > p > .version {
     border-spacing: 0;
     border-top: 2px solid #111;
 }
-#board > .view table caption{
+
+#board > .view table caption {
     text-align: left;
     margin-bottom: 6px;
 }
+
 #board > .view table th {
     width: 112px;
     height: 50px;
     background: #f5f8f9;
     border-bottom: 1px solid #e9e9e9;
 }
+
 #board > .view table td {
     padding: 10px;
     box-sizing: border-box;
     border-bottom: 1px solid #e9e9e9;
 }
+
 #board > .view table td > input {
     width: 400px;
     height: 24px;
     border: none;
 }
+
 #board > .view table td > textarea {
     width: 100%;
     height: 280px;
@@ -429,7 +522,7 @@ footer > p > .version {
     margin-top: 10px;
     padding: 16px;
 }
-    
+
 #board > .view > section > h3 {
     font-size: 13px;
     font-weight: bold;
@@ -439,14 +532,33 @@ footer > p > .version {
     box-sizing: border-box;
 }
 
-#board > .view > .commentList {}
-#board > .view > .commentList > article {overflow: hidden;}        
-#board > .view > .commentList .nick {}
-#board > .view > .commentList .date {}
-#board > .view > .commentList .content {padding: 10px;}
-#board > .view > .commentList > article > div {float: right;}
-#board > .view > .commentList > article .remove {}
-#board > .view > .commentList > article .modify {}
+#board > .view > .commentList {
+}
+
+#board > .view > .commentList > article {
+    overflow: hidden;
+}
+
+#board > .view > .commentList .nick {
+}
+
+#board > .view > .commentList .date {
+}
+
+#board > .view > .commentList .content {
+    padding: 10px;
+}
+
+#board > .view > .commentList > article > div {
+    float: right;
+}
+
+#board > .view > .commentList > article .remove {
+}
+
+#board > .view > .commentList > article .modify {
+}
+
 #board > .view > .commentList > .empty {
     margin: 20px;
     text-align: center;
@@ -455,6 +567,7 @@ footer > p > .version {
 #board > .view > .commentForm {
     overflow: hidden;
 }
+
 #board > .view > .commentForm textarea {
     width: 100%;
     height: 60px;
@@ -463,6 +576,7 @@ footer > p > .version {
     box-sizing: border-box;
     resize: none;
 }
+
 #board > .view > .commentForm div {
     float: right;
     margin-top: 10px;
@@ -471,10 +585,11 @@ footer > p > .version {
 /* 글수정 */
 #board > .modify {
     width: 100%;
-    height: auto;            
+    height: auto;
     margin: 60px auto;
     overflow: hidden;
 }
+
 #board > .modify table {
     width: 100%;
     height: auto;
@@ -482,26 +597,31 @@ footer > p > .version {
     border-spacing: 0;
     border-top: 2px solid #111;
 }
-#board > .modify table caption{
+
+#board > .modify table caption {
     text-align: left;
     margin-bottom: 6px;
 }
+
 #board > .modify table th {
     width: 112px;
     height: 50px;
     background: #f5f8f9;
     border-bottom: 1px solid #e9e9e9;
 }
+
 #board > .modify table td {
     padding: 10px;
     box-sizing: border-box;
     border-bottom: 1px solid #e9e9e9;
 }
+
 #board > .modify table td > input {
     width: 400px;
     height: 24px;
     border: none;
 }
+
 #board > .modify table td > textarea {
     width: 100%;
     height: 280px;
@@ -517,50 +637,59 @@ footer > p > .version {
 /* 버튼 공통 */
 .btn {
     display: inline-block;
-    padding: 8px;    
-    border: 1px solid #bebebe; 
-    text-align: center;    
+    padding: 8px;
+    border: 1px solid #bebebe;
+    text-align: center;
     cursor: pointer;
 }
 
-.btnRegister {}
+.btnRegister {
+}
+
 .btnWrite {
     position: absolute;
     right: 0;
     bottom: 0;
-    border: 1px solid #3b3c3f; 
-    background: #4b545e; 
+    border: 1px solid #3b3c3f;
+    background: #4b545e;
     color: #fff;
 }
 
 .btnComplete {
-    border: 1px solid #3b3c3f; 
-    background: #4b545e; 
+    border: 1px solid #3b3c3f;
+    background: #4b545e;
     color: #fff;
 }
 
 .btnAuth, .btnConfirm {
     display: inline-block;
-    padding: 4px;    
-    border: 1px solid #bebebe; 
+    padding: 4px;
+    border: 1px solid #bebebe;
     text-align: center;
 }
 
 
 .btnUpdatePass {
-    padding: 5px; background: #2e658a; color:#fff; border: 1px solid #bebebe; 
+    padding: 5px;
+    background: #2e658a;
+    color: #fff;
+    border: 1px solid #bebebe;
 }
+
 .btnWithdraw {
-    padding: 5px; background: #ed2f2f; color:#fff;
+    padding: 5px;
+    background: #ed2f2f;
+    color: #fff;
 }
 
 /* 아이디, 비밀번호 찾기 공통 */
 #user > .find {
     width: 600px;
-    height: auto;            
+    height: auto;
     margin: 60px auto;
     overflow: hidden;
 }
+
 #user > .find table {
     width: 100%;
     height: auto;
@@ -568,6 +697,7 @@ footer > p > .version {
     border-spacing: 0;
     border-top: 2px solid #111;
 }
+
 #user > .find table > caption {
     text-align: left;
     font-weight: bold;
@@ -581,8 +711,13 @@ footer > p > .version {
     box-sizing: border-box;
 }
 
-#user > .find table tr > td:nth-child(1) {width: 120px;}
-#user > .find table tr > td:nth-child(2) {font-weight: bold;}
+#user > .find table tr > td:nth-child(1) {
+    width: 120px;
+}
+
+#user > .find table tr > td:nth-child(2) {
+    font-weight: bold;
+}
 
 #user > .find table input {
     width: 162px;
@@ -611,10 +746,11 @@ footer > p > .version {
 /* 회원가입 */
 #user > .myInfo {
     width: 600px;
-    height: auto;            
+    height: auto;
     margin: 60px auto;
     overflow: hidden;
 }
+
 #user > .myInfo table {
     width: 100%;
     border-collapse: collapse;
@@ -622,23 +758,29 @@ footer > p > .version {
     border-top: 2px solid #111;
     margin-bottom: 10px;
 }
+
 #user > .myInfo table caption {
     text-align: left;
     padding: 10px 0;
     font-weight: bold;
     box-sizing: border-box;
 }
+
 #user > .myInfo table tr > td {
     padding: 6px 12px;
     border: 1px solid #e9e9e9;
     box-sizing: border-box;
 }
+
 #user > .myInfo table tr > td:nth-child(1) {
     width: 105px;
     background: #f5f8f9;
 }
 
-#user > .myInfo table tr .nickInfo {margin-bottom: 6px;}
+#user > .myInfo table tr .nickInfo {
+    margin-bottom: 6px;
+}
+
 #user > .myInfo table input {
     width: 162px;
     height: 22px;
@@ -652,10 +794,12 @@ footer > p > .version {
     width: 360px;
     margin: 4px 0;
 }
+
 #user > .myInfo table input[name=addr2] {
     display: block;
     width: 360px;
 }
+
 #user > .myInfo table button {
     border: none;
     vertical-align: bottom;

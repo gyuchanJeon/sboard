@@ -1,4 +1,4 @@
-package com.sboard.Service;
+package com.sboard.service;
 
 import com.sboard.dto.TermsDTO;
 import com.sboard.repository.TermsRepository;

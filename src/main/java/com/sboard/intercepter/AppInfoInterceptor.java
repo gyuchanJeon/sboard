@@ -1,4 +1,4 @@
-package com.sboard.Intercepter;
+package com.sboard.intercepter;
 
 import com.sboard.config.AppInfo;
 import jakarta.servlet.http.HttpServletRequest;

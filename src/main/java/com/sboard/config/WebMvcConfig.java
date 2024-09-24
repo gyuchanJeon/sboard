@@ -1,6 +1,6 @@
 package com.sboard.config;
 
-import com.sboard.Intercepter.AppInfoInterceptor;
+import com.sboard.intercepter.AppInfoInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

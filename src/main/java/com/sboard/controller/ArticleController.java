@@ -1,9 +1,11 @@
 package com.sboard.controller;
 
-import com.sboard.Service.ArticleService;
-import com.sboard.Service.FileService;
+import com.sboard.dto.PageRequestDTO;
+import com.sboard.dto.PageResponseDTO;
+import com.sboard.service.ArticleService;
 import com.sboard.dto.ArticleDTO;
 import com.sboard.dto.FileDTO;
+import com.sboard.service.FileService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -25,7 +27,12 @@ public class ArticleController {
     private final FileService fileService;
 
     @GetMapping("/list")
-    public String list(Model model) {
+    public String list(PageRequestDTO pageRequestDTO, Model model) {
+
+        PageResponseDTO pageResponseDTO = articleService.selectAllArticles(pageRequestDTO);
+        model.addAttribute(pageResponseDTO);
+
+
         return "/article/list";
     }
 

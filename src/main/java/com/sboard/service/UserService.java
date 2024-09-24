@@ -1,4 +1,4 @@
-package com.sboard.Service;
+package com.sboard.service;
 
 import com.sboard.dto.UserDTO;
 import com.sboard.entity.User;

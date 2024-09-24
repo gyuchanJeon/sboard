@@ -1,8 +1,8 @@
 package com.sboard.controller;
 
 import com.google.gson.Gson;
-import com.sboard.Service.TermsService;
-import com.sboard.Service.UserService;
+import com.sboard.service.TermsService;
+import com.sboard.service.UserService;
 import com.sboard.config.AppInfo;
 import com.sboard.dto.TermsDTO;
 import com.sboard.dto.UserDTO;
