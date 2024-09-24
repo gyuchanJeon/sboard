@@ -19,6 +19,7 @@ server:
     context-path: /sboard
 spring:
   application:
+    version: ${ext.version}
     name: sboard
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -66,5 +67,3 @@ spring:
       location: uploads/
       max-file-size: 10MB
 
-ext:
-  version: ${ext.version}
