@@ -19,8 +19,8 @@ server:
     context-path: /sboard
 spring:
   application:
-    version: ${ext.version}
     name: sboard
+    version: ${ext.version}
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://13.124.215.184:3306/jboard
